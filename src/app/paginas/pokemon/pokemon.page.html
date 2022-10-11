@@ -1,3 +1,9 @@
+<ion-content>
+
+  <ng-template #cargando>
+    <ion-progress-bar  type="indeterminate"></ion-progress-bar>
+  </ng-template>
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -32,4 +38,7 @@
     </ion-list>
   </ion-grid>
   </ion-card>
+</ion-content>
+
+<p *ngIf="obtener.resultado then losDatos else cargando"></p>
 </ion-content>
