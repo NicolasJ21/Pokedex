@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pokemones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-template #cargando>
+    <ion-progress-bar  type="indeterminate"></ion-progress-bar>
+  </ng-template>
+  <ng-template #losDatos>
+    <form [formGroup]="formulario" novalidate>
+
+  </form>
+
+    <app-info-pokemon
+      *ngFor="let info of obtenerPokemon.informaciones"
+      [url]="info.url"
+    ></app-info-pokemon>
+    <ion-infinite-scroll (ionInfinite)="cargarMasPokemones($event)">
+      <ion-infinite-scroll-content [loadingSpinner]="'circular'" [loadingText]="'Cargando :)'">
+
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ng-template>
+  <p *ngIf="obtenerPokemon.informaciones; then losDatos else cargando"></p>
+  <!-- Template Reference -->
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pokemones.page.html">
+      <ion-title> </ion-title>
+    </ion-back-button>
+  </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+    <ion-card >
+    <h1>
+      {{obtener.resultado.name}}
+    </h1>
+    <br>
+    <br>
+
+      <img [src]="obtener.resultado.sprites.front_default">
+      <img [src]="obtener.resultado.sprites.back_default">
+      <img [src]="obtener.resultado.sprites.front_female ">
+      <img [src]="obtener.resultado.sprites.front_shiny">
+      <img [src]="obtener.resultado.sprites.front_shiny_female" >
+  <ion-grid>
+    <ion-list >
+
+      <ion-item *ngFor="let a of obtener.resultado.stats">
+        {{a.stat.name}} ( {{a.base_stat}} )
+
+      </ion-item>
+
+    </ion-list>
+  </ion-grid>
+  </ion-card>
+</ion-content>
